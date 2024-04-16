@@ -36,19 +36,4 @@ jobs:
         tags: rohantiger/demo1:v1
         file: ./dockerfile
 
-  deploy:
-    runs-on: ubuntu-latest
-    needs: build
-    environment:
-      name: 'production'
-      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
-
-    steps:
-    - name: Deploy to Azure Web App
-      id: deploy-to-webapp
-      uses: azure/webapps-deploy@v2
-      with:
-        app-name: 'dpc-container-app'
-        slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_38515c822ae34eff8243ac3ec0c5fe43 }}
-        images: 'abilashravita/dpc-webapp:${{ github.sha }}'
+  
