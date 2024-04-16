@@ -33,8 +33,8 @@ jobs:
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: abilashravita/dpc-webapp:${{ github.sha }}
-        file: ./Dockerfile
+        tags: rohantiger/demo1:v1
+        file: ./dockerfile
 
   deploy:
     runs-on: ubuntu-latest
